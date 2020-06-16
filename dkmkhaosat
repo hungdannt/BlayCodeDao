@@ -1,0 +1,24 @@
+
+function randomFromTo(from, to){
+       return Math.floor(Math.random() * (to - from + 1) + from);
+}
+
+function autoKhaoSat () {
+    for (i = 0; i < document.forms.length ;i++) {
+        for (j = 0; j < document.forms[i].length ;j++) {
+            if (document.forms[i].elements[j].type == "radio") {
+    			start = j;
+    			lastName = document.forms[i].elements[j].name;
+    			
+    			while (j < document.forms[i].length - 1 && lastName == document.forms[i].elements[j+1].name) {
+    				j++;
+    			}
+    			rand = randomFromTo(start, j);
+    			document.forms[i].elements[rand].checked = true;
+    		}
+    	}
+    }
+}
+
+autoKhaoSat();
+console.log("Xong rồi mệt vãi lúa!")
